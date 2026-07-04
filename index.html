@@ -3,199 +3,571 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DU Predictor 2026 | CUET GAT ENG</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>DU CSAS Course-Specific Preference Maker | CUET GAT ENG</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --du-maroon: #800000; --yt-red: #ff0000; }
-        body { font-family: 'Poppins', sans-serif; background: #f8f9fa; color: #333; }
-        .navbar { background: var(--du-maroon); color: white; padding: 15px; text-align: center; font-weight: 700; font-size: 1.2rem; }
-        .card { border: none; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); margin-top: 20px; }
-        .btn-subscribe { background: var(--yt-red); color: white; border-radius: 50px; font-weight: 700; padding: 15px 30px; text-decoration: none; display: inline-block; transition: 0.3s; }
-        .btn-subscribe:hover { background: #333; color: white; }
-        .step { display: none; }
-        .active { display: block; animation: fadeIn 0.5s; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .college-box { border-left: 8px solid #ddd; margin-bottom: 12px; padding: 15px; border-radius: 10px; background: white; display: flex; justify-content: space-between; align-items: center; }
-        .high-chance { border-left-color: #27ae60; background: #f0fff4; }
-        .med-chance { border-left-color: #f1c40f; background: #fffdf0; }
-        .low-chance { border-left-color: #e74c3c; background: #fff5f5; }
-        .badge-chance { padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
     </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
 
-<div class="navbar">DU CSAS 2026 PREFERENCE MAKER</div>
-
-<div class="container my-4">
-    <div class="row justify-content-center">
-        <div class="col-md-7">
-
-            <!-- STEP 1: SUBSCRIBE (Fixed Logic) -->
-            <div id="step1" class="card p-5 text-center step active">
-                <h4 class="fw-bold">Subscribe now to unlock the generator</h4>
-                <p class="text-muted small mb-4">Please subscribe to @CUET_GAT_ENG to access the accurate 2026 preference list generator.</p>
-                
-                <a href="https://www.youtube.com/@CUET_GAT_ENG?sub_confirmation=1" 
-                   target="_blank" 
-                   onclick="revealAccessBtn()" 
-                   class="btn btn-subscribe mb-3">
-                    CLICK TO SUBSCRIBE
-                </a>
-
-                <div id="access-btn-area" style="display:none;">
-                    <hr>
-                    <button onclick="goToStep(2)" class="btn btn-dark btn-lg w-100 rounded-pill">ACCESS GENERATOR NOW</button>
+    <!-- Header / Navbar -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-red-600 text-white p-2 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-graduation-cap text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg md:text-xl text-slate-900 tracking-tight">DU CSAS Preference Maker</h1>
+                    <p class="text-xs text-slate-500">Program-Specific Counseling Helper</p>
                 </div>
             </div>
+            <a href="https://www.youtube.com/@CUET_GAT_ENG" target="_blank" class="flex items-center space-x-2 bg-red-600 hover:bg-red-700 text-white font-medium text-xs md:text-sm px-4 py-2 rounded-lg transition duration-200">
+                <i class="fa-brands fa-youtube text-lg"></i>
+                <span>Visit Channel</span>
+            </a>
+        </div>
+    </header>
 
-            <!-- STEP 2: INPUTS -->
-            <div id="step2" class="card p-4 step">
-                <h5 class="fw-bold text-center mb-4">Enter Your CUET 2026 Profile</h5>
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <label class="small fw-bold">Stream</label>
-                        <select id="stream" class="form-select" onchange="updateMax()">
-                            <option value="1000">Arts/Commerce (Max 1000)</option>
-                            <option value="750">Science (Max 750)</option>
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-8">
+        
+        <!-- SUBSCRIPTION LOCK GATEWAY -->
+        <div id="sub-gate" class="max-w-md mx-auto bg-white rounded-2xl shadow-xl border border-slate-100 p-8 text-center mt-6 md:mt-12 transition-all duration-300">
+            <div class="w-20 h-20 bg-red-50 text-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fa-brands fa-youtube text-4xl"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-slate-900 mb-2">Unlock Preference Maker</h2>
+            <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                To access the dynamic course-specific preference tool, please subscribe to our YouTube channel. This support helps us maintain updated admission metrics.
+            </p>
+            
+            <div class="space-y-4">
+                <a href="https://www.youtube.com/@CUET_GAT_ENG?sub_confirmation=1" 
+                   target="_blank" 
+                   id="sub-btn" 
+                   onclick="enableVerifyButton()"
+                   class="w-full flex items-center justify-center space-x-2 bg-red-600 hover:bg-red-700 text-white font-semibold py-3.5 px-6 rounded-xl transition duration-300 transform active:scale-95 shadow-lg shadow-red-200">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <span>Step 1: Subscribe on YouTube</span>
+                </a>
+                
+                <button id="verify-btn" 
+                        disabled 
+                        onclick="verifySubscription()"
+                        class="w-full flex items-center justify-center space-x-2 bg-slate-100 text-slate-400 font-semibold py-3.5 px-6 rounded-xl transition duration-300 cursor-not-allowed">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Step 2: Confirm Subscription</span>
+                </button>
+                <p id="verify-hint" class="text-xs text-slate-400 mt-2">Please complete Step 1 to proceed with validation.</p>
+            </div>
+        </div>
+
+        <!-- APP DASHBOARD (Hidden by Default) -->
+        <div id="app-dashboard" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Left Side: Inputs -->
+            <div class="lg:col-span-5 bg-white p-6 rounded-2xl shadow-md border border-slate-100">
+                <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center space-x-2 border-b border-slate-100 pb-3">
+                    <i class="fa-solid fa-sliders text-indigo-600"></i>
+                    <span>Preferences Setup</span>
+                </h3>
+                
+                <form id="preferences-form" onsubmit="generatePreferences(event)" class="space-y-5">
+                    
+                    <!-- Stream Select -->
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1.5">1. Choose Your Stream</label>
+                        <select id="stream" onchange="populateCourses()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-lg px-3.5 py-2.5 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none text-sm font-medium">
+                            <option value="commerce">Commerce Stream</option>
+                            <option value="arts">Arts & Humanities Stream</option>
+                            <option value="science">Sciences Stream</option>
                         </select>
                     </div>
-                    <div class="col-md-6">
-                        <label class="small fw-bold">Category</label>
-                        <select id="cat" class="form-select">
-                            <option value="UR">General</option>
-                            <option value="OBC">OBC-NCL</option>
+
+                    <!-- Course Select (Dynamically populated) -->
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1.5">2. Select Desired Program</label>
+                        <select id="course" onchange="updateCourseDetails()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-lg px-3.5 py-2.5 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none text-sm font-medium">
+                            <!-- Populated dynamically via JS -->
+                        </select>
+                        <div id="course-note" class="text-[11px] text-indigo-600 font-medium mt-1.5 bg-indigo-50 p-2 rounded-md hidden">
+                            <!-- Course helper note -->
+                        </div>
+                    </div>
+
+                    <!-- CUET Score -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1.5">
+                            <label class="block text-sm font-semibold text-slate-700">3. Combined CUET Score</label>
+                            <span id="max-score-label" class="text-xs text-indigo-600 font-bold bg-indigo-50 px-2 py-0.5 rounded-full">Max Marks: 1000</span>
+                        </div>
+                        <input type="number" id="cuet-score" required class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-lg px-3.5 py-2.5 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none text-sm" placeholder="Enter score">
+                    </div>
+
+                    <!-- Category -->
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1.5">4. Category</label>
+                        <select id="category" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-lg px-3.5 py-2.5 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none text-sm font-medium">
+                            <option value="UR">UR (Unreserved / General)</option>
+                            <option value="OBC-NCL">OBC-NCL</option>
                             <option value="EWS">EWS</option>
                             <option value="SC">SC</option>
                             <option value="ST">ST</option>
                         </select>
                     </div>
-                    <div class="col-12">
-                        <label class="small fw-bold">Normalized CUET Score</label>
-                        <input type="number" id="userScore" class="form-control" placeholder="Enter Score">
+
+                    <!-- Gender -->
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1.5">5. Gender</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="flex items-center justify-center border border-slate-200 rounded-lg p-2.5 cursor-pointer hover:bg-slate-50 transition font-medium text-sm">
+                                <input type="radio" name="gender" value="male" checked class="mr-2 text-indigo-600 focus:ring-indigo-500"> Male
+                            </label>
+                            <label class="flex items-center justify-center border border-slate-200 rounded-lg p-2.5 cursor-pointer hover:bg-slate-50 transition font-medium text-sm">
+                                <input type="radio" name="gender" value="female" class="mr-2 text-indigo-600 focus:ring-indigo-500"> Female
+                            </label>
+                        </div>
                     </div>
-                    <div class="col-12">
-                        <label class="small fw-bold">Preferred Course</label>
-                        <select id="course" class="form-select">
-                            <option>B.Com (Hons)</option>
-                            <option>B.A. Pol Science (Hons)</option>
-                            <option>B.A. Economics (Hons)</option>
-                            <option>B.Sc Physics/Maths</option>
-                            <option>B.A. Programme</option>
-                        </select>
-                    </div>
-                    <button onclick="generate()" class="btn btn-primary w-100 mt-4 rounded-pill py-2" style="background:var(--du-maroon); border:none;">GENERATE LIST</button>
-                </div>
+
+                    <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-xl transition duration-200 shadow-md flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>Find Eligible Colleges</span>
+                    </button>
+                </form>
             </div>
 
-            <!-- STEP 3: RESULTS -->
-            <div id="step3" class="step">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h6 class="fw-bold mb-0">Recommended Preferences:</h6>
-                    <button onclick="goToStep(2)" class="btn btn-sm btn-link">Edit Data</button>
+            <!-- Right Side: Preferences Output -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 min-h-[400px] flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center border-b border-slate-100 pb-4 mb-4">
+                            <h3 class="text-xl font-bold text-slate-900 flex items-center space-x-2">
+                                <i class="fa-solid fa-list-ol text-indigo-600"></i>
+                                <span>Suggested Program Preference Sheet</span>
+                            </h3>
+                            <div class="flex space-x-2">
+                                <button onclick="copyPreferenceSheet()" id="copy-btn" class="hidden items-center space-x-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-xs font-semibold transition">
+                                    <i class="fa-regular fa-copy"></i>
+                                    <span>Copy List</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Initial state helper placeholder -->
+                        <div id="results-placeholder" class="text-center py-16 px-4">
+                            <div class="w-16 h-16 bg-slate-50 text-slate-300 rounded-full flex items-center justify-center mx-auto mb-4 border border-dashed border-slate-200">
+                                <i class="fa-solid fa-file-invoice text-2xl"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-700 mb-1">Sheet Not Generated Yet</h4>
+                            <p class="text-sm text-slate-400 max-w-sm mx-auto">Select your stream and specific target course, then provide your marks to construct an allocation profile.</p>
+                        </div>
+
+                        <!-- Results List Container -->
+                        <div id="results-container" class="hidden space-y-6">
+                            
+                            <!-- Explanatory Alert -->
+                            <div class="bg-indigo-50 border border-indigo-100 text-indigo-950 p-3.5 rounded-xl text-xs flex items-start space-x-2.5">
+                                <i class="fa-solid fa-circle-info text-base text-indigo-600 mt-0.5"></i>
+                                <span class="leading-relaxed">
+                                    <strong>How to configure CSAS:</strong> Arrange these colleges in the exact order shown. Even if a college is marked "Ambitious", keeping it at the top ensures you remain eligible for it in subsequent allocation rounds should cut-offs drop.
+                                </span>
+                            </div>
+
+                            <!-- Ambitious Tier -->
+                            <div>
+                                <h4 class="text-sm font-bold text-red-600 uppercase tracking-wider mb-2.5 flex items-center space-x-1.5">
+                                    <i class="fa-solid fa-chevron-up"></i>
+                                    <span>1. Ambitious / Upper Tier Options (High Cutoffs)</span>
+                                </h4>
+                                <div id="ambitious-list" class="space-y-2"></div>
+                            </div>
+
+                            <!-- Target Tier -->
+                            <div>
+                                <h4 class="text-sm font-bold text-indigo-600 uppercase tracking-wider mb-2.5 flex items-center space-x-1.5">
+                                    <i class="fa-solid fa-bullseye"></i>
+                                    <span>2. Target / Medium Tier Matches (Realistic Options)</span>
+                                </h4>
+                                <div id="target-list" class="space-y-2"></div>
+                            </div>
+
+                            <!-- Safe Tier -->
+                            <div>
+                                <h4 class="text-sm font-bold text-emerald-600 uppercase tracking-wider mb-2.5 flex items-center space-x-1.5">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                    <span>3. Safe / Lower Tier Backups (Highest Admission Likelihood)</span>
+                                </h4>
+                                <div id="safe-list" class="space-y-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 border-t border-slate-100 pt-4 text-center">
+                        <p class="text-xs text-slate-400">
+                            Estimates are computed dynamically based on adjusted domain structures. Actual outcomes depend on current competition metrics and reservation limits.
+                        </p>
+                    </div>
                 </div>
-                <div id="result-list"></div>
-                <p class="small text-center text-muted mt-4">Official Data Analysis by @CUET_GAT_ENG</p>
             </div>
 
         </div>
-    </div>
-</div>
 
-<script>
-    // 250 Mark Scaling Logic (Historical base / 800 * 1.25)
-    const colleges = [
-        { name: "St. Stephens", score: 784, tier: 1 },
-        { name: "SRCC", score: 782, tier: 1 },
-        { name: "Hindu College", score: 779, tier: 1 },
-        { name: "Hansraj College", score: 772, tier: 1 },
-        { name: "Miranda House (W)", score: 770, tier: 1 },
-        { name: "Lady Shri Ram (W)", score: 774, tier: 1 },
-        { name: "Kirori Mal College", score: 764, tier: 1 },
-        { name: "Ramjas College", score: 758, tier: 1 },
-        { name: "Sri Venkateswara", score: 752, tier: 2 },
-        { name: "ARSD College", score: 735, tier: 2 },
-        { name: "Shaheed Bhagat Singh", score: 728, tier: 2 },
-        { name: "SGTB Khalsa", score: 738, tier: 2 },
-        { name: "Gargi College (W)", score: 715, tier: 2 },
-        { name: "Dyal Singh College", score: 695, tier: 2 },
-        { name: "Motilal Nehru College", score: 665, tier: 3 },
-        { name: "Ramanujan College", score: 640, tier: 3 },
-        { name: "Deshbandhu College", score: 630, tier: 3 },
-        { name: "PGDAV College", score: 610, tier: 3 },
-        { name: "Zakir Husain Delhi", score: 600, tier: 3 },
-        { name: "Rajdhani College", score: 585, tier: 3 },
-        { name: "Shyam Lal College", score: 560, tier: 3 },
-        { name: "Satyawati College", score: 540, tier: 3 },
-        { name: "Swami Shraddhanand", score: 480, tier: 3 }
-    ];
+    </main>
 
-    function revealAccessBtn() {
-        // Show the access button immediately when link is clicked
-        document.getElementById('access-btn-area').style.display = 'block';
-    }
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm text-slate-500">
+                &copy; 2026 CUET GAT ENG. All Rights Reserved. Created for counseling preparation and planning.
+            </p>
+        </div>
+    </footer>
 
-    function goToStep(n) {
-        document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-        document.getElementById('step' + n).classList.add('active');
-    }
-
-    function generate() {
-        const score = parseFloat(document.getElementById('userScore').value);
-        const cat = document.getElementById('cat').value;
-        const max = parseInt(document.getElementById('stream').value);
-        const display = document.getElementById('result-list');
-
-        if(!score || score > max) return alert("Please enter a valid score");
-
-        const factor = 1.25; // 800 to 1000 scale
-        
-        let processed = colleges.map(c => {
-            let base = c.score * factor;
-            let relax = 0;
-            if(cat === "OBC") relax = 40;
-            if(cat === "SC") relax = 90;
-            if(cat === "ST") relax = 140;
-            if(cat === "EWS") relax = 20;
-
-            let finalCutoff = base - relax;
-            let status = "low-chance";
-            let statusText = "Dream";
-            let sortOrder = 3;
-
-            if(score >= finalCutoff) { status = "high-chance"; statusText = "Safe / High Probability"; sortOrder = 1; }
-            else if(score >= finalCutoff - 35) { status = "med-chance"; statusText = "Target / Possible"; sortOrder = 2; }
-
-            return { ...c, finalCutoff, status, statusText, sortOrder };
-        });
-
-        // DESCENDING ORDER: Safe colleges first, then Targets, then Dreams
-        processed.sort((a, b) => {
-            if(a.sortOrder !== b.sortOrder) return a.sortOrder - b.sortOrder;
-            return a.tier - b.tier;
-        });
-
-        display.innerHTML = "";
-        processed.forEach((col, i) => {
-            const badgeClass = col.sortOrder === 1 ? 'bg-success' : (col.sortOrder === 2 ? 'bg-warning text-dark' : 'bg-danger');
-            
-            display.innerHTML += `
-                <div class="college-box ${col.status}">
-                    <div>
-                        <span class="text-muted small">#${i+1} Priority</span>
-                        <h6 class="fw-bold mb-0">${col.name}</h6>
-                        <small class="text-muted">Est. 2026 Cutoff: ${Math.round(col.finalCutoff)}</small>
-                    </div>
-                    <div class="text-end">
-                        <span class="badge-chance badge ${badgeClass}">${col.statusText}</span>
-                    </div>
+    <!-- Verification Modal -->
+    <div id="verify-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl text-center transform scale-95 transition-transform duration-300">
+            <div id="modal-spinner" class="py-8">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
+                <h4 class="font-bold text-slate-800">Verifying Status...</h4>
+                <p class="text-xs text-slate-500 mt-1">Contacting channel subscription records.</p>
+            </div>
+            <div id="modal-confirm" class="hidden">
+                <div class="w-12 h-12 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-circle-check text-2xl"></i>
                 </div>
-            `;
+                <h4 class="font-bold text-slate-800 text-lg">Did you subscribe?</h4>
+                <p class="text-sm text-slate-500 mt-1 mb-5">By confirming, you verify that you have supported our YouTube channel @CUET_GAT_ENG.</p>
+                <div class="flex space-x-3">
+                    <button onclick="closeModal()" class="w-1/2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-2 rounded-lg text-sm transition">Cancel</button>
+                    <button onclick="unlockPortal()" class="w-1/2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-lg text-sm transition">Yes, I Subscribed</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripting Logic -->
+    <script>
+        // --- COURSE CONFIGURATIONS ---
+        const coursesByStream = {
+            commerce: [
+                { id: "bcom_hons", name: "B.Com (Hons)", max: 1000, note: "Calculated out of 1000 marks. Requires Language + 3 Domain subjects (including Mathematics or Accountancy)." },
+                { id: "bcom_prog", name: "B.Com (Program)", max: 1000, note: "Calculated out of 1000 marks. Requires Language + 3 Domain subjects." }
+            ],
+            arts: [
+                { id: "ba_polsci_hons", name: "B.A. (Hons) Political Science", max: 1000, note: "Calculated out of 1000 marks. Highly competitive across both North and South Campuses." },
+                { id: "ba_history_hons", name: "B.A. (Hons) History", max: 1000, note: "Calculated out of 1000 marks. Standard humanities stream eligibility rules apply." },
+                { id: "ba_english_hons", name: "B.A. (Hons) English", max: 1000, note: "Calculated out of 1000 marks. Requires English language score combined with 3 Domain subjects." },
+                { id: "ba_eco_hons", name: "B.A. (Hons) Economics", max: 1000, note: "Calculated out of 1000 marks. Mathematics is a mandatory CUET domain requirement." },
+                { id: "ba_prog", name: "B.A. Program", max: 1000, note: "Calculated out of 1000 marks. Offers flexible combinations. Cut-offs are typically lower than specialized honors." }
+            ],
+            science: [
+                { id: "bsc_physics_hons", name: "B.Sc (Hons) Physics", max: 750, note: "Calculated out of 750 marks. PCM (Physics, Chemistry, Math) only. Language score is qualifying (30%)." },
+                { id: "bsc_chemistry_hons", name: "B.Sc (Hons) Chemistry", max: 750, note: "Calculated out of 750 marks. PCM or PCB options. Language score is qualifying." },
+                { id: "bsc_maths_hons", name: "B.Sc (Hons) Mathematics", max: 1000, note: "Calculated out of 1000 marks. Requires Language + Mathematics + any other 2 Domain subjects." },
+                { id: "bsc_comp_sci", name: "B.Sc (Hons) Computer Science", max: 1000, note: "Calculated out of 1000 marks. Requires Language + Maths/CS + any other 2 Domain subjects." },
+                { id: "bsc_life_prog", name: "B.Sc Life Sciences / Prog", max: 750, note: "Calculated out of 750 marks. PCB based selection. Language score is qualifying." }
+            ]
+        };
+
+        // --- MASTER COLLEGE DATA ---
+        // base1000 represents baseline for B.Com Hons/PolSci Hons (out of 1000)
+        // base750 represents baseline for Physics Hons (out of 750)
+        const COLLEGES_DB = [
+            { name: "Shri Ram College of Commerce (SRCC)", campus: "North Campus", type: "Co-Ed", base1000: 970, base750: null, streams: ["commerce", "arts-eco"] },
+            { name: "Hindu College", campus: "North Campus", type: "Co-Ed", base1000: 965, base750: 705, streams: ["commerce", "arts", "science"] },
+            { name: "Lady Shri Ram College for Women (LSR)", campus: "South Campus", type: "Girls", base1000: 960, base750: null, streams: ["commerce", "arts"] },
+            { name: "Miranda House", campus: "North Campus", type: "Girls", base1000: 955, base750: 695, streams: ["arts", "science"] },
+            { name: "Hansraj College", campus: "North Campus", type: "Co-Ed", base1000: 950, base750: 690, streams: ["commerce", "arts", "science"] },
+            { name: "Kirori Mal College (KMC)", campus: "North Campus", type: "Co-Ed", base1000: 938, base750: 672, streams: ["commerce", "arts", "science"] },
+            { name: "Ramjas College", campus: "North Campus", type: "Co-Ed", base1000: 928, base750: 660, streams: ["commerce", "arts", "science"] },
+            { name: "Sri Venkateswara College (Venky)", campus: "South Campus", type: "Co-Ed", base1000: 925, base750: 655, streams: ["commerce", "arts", "science"] },
+            { name: "SGTB Khalsa College", campus: "North Campus", type: "Co-Ed", base1000: 905, base750: 635, streams: ["commerce", "arts", "science"] },
+            { name: "Indraprastha College for Women (IPCW)", campus: "North Campus", type: "Girls", base1000: 890, base750: null, streams: ["commerce", "arts"] },
+            { name: "Gargi College", campus: "South Campus", type: "Girls", base1000: 882, base750: 610, streams: ["commerce", "arts", "science"] },
+            { name: "Daulat Ram College", campus: "North Campus", type: "Girls", base1000: 875, base750: 595, streams: ["commerce", "arts", "science"] },
+            { name: "Shaheed Bhagat Singh College (SBSC)", campus: "South Campus", type: "Co-Ed", base1000: 868, base750: null, streams: ["commerce", "arts"] },
+            { name: "Delhi College of Arts & Commerce (DCAC)", campus: "South Campus", type: "Co-Ed", base1000: 862, base750: null, streams: ["commerce", "arts"] },
+            { name: "Atma Ram Sanatan Dharma College (ARSD)", campus: "South Campus", type: "Co-Ed", base1000: 855, base750: 580, streams: ["commerce", "arts", "science"] },
+            { name: "Kamala Nehru College", campus: "South Campus", type: "Girls", base1000: 840, base750: null, streams: ["commerce", "arts"] },
+            { name: "Motilal Nehru College", campus: "South Campus", type: "Co-Ed", base1000: 815, base750: 540, streams: ["commerce", "arts", "science"] },
+            { name: "Dyal Singh College", campus: "South Campus", type: "Co-Ed", base1000: 795, base750: 525, streams: ["commerce", "arts", "science"] },
+            { name: "Deen Dayal Upadhyaya College (DDUC)", campus: "Off-Campus", type: "Co-Ed", base1000: 780, base750: 535, streams: ["commerce", "science"] },
+            { name: "Ramanujan College", campus: "South Campus", type: "Co-Ed", base1000: 765, base750: 505, streams: ["commerce", "arts", "science"] },
+            { name: "P.G.D.A.V. College", campus: "South Campus", type: "Co-Ed", base1000: 735, base750: null, streams: ["commerce", "arts"] },
+            { name: "Satyawati College", campus: "Off-Campus", type: "Co-Ed", base1000: 715, base750: null, streams: ["commerce", "arts"] },
+            { name: "Bhaskaracharya College of Applied Sciences", campus: "Off-Campus", type: "Co-Ed", base1000: null, base750: 480, streams: ["science"] },
+            { name: "Zakir Husain Delhi College", campus: "Off-Campus", type: "Co-Ed", base1000: 695, base750: 460, streams: ["commerce", "arts", "science"] },
+            { name: "Shyam Lal College", campus: "Off-Campus", type: "Co-Ed", base1000: 675, base750: 445, streams: ["commerce", "arts", "science"] },
+            { name: "Swami Shraddhanand College", campus: "Off-Campus", type: "Co-Ed", base1000: 615, base750: 405, streams: ["commerce", "arts", "science"] }
+        ];
+
+        document.addEventListener("DOMContentLoaded", () => {
+            if (localStorage.getItem("du_csas_unlocked") === "true") {
+                showDashboard();
+            }
+            populateCourses();
         });
 
-        goToStep(3);
-        window.scrollTo(0,0);
-    }
-</script>
+        // Dynamic select population based on selected stream
+        function populateCourses() {
+            const stream = document.getElementById("stream").value;
+            const courseSelect = document.getElementById("course");
+            courseSelect.innerHTML = "";
+
+            const courses = coursesByStream[stream];
+            courses.forEach(course => {
+                const opt = document.createElement("option");
+                opt.value = course.id;
+                opt.innerText = course.name;
+                courseSelect.appendChild(opt);
+            });
+
+            updateCourseDetails();
+        }
+
+        // Updates maximum scores and informational note tags
+        function updateCourseDetails() {
+            const stream = document.getElementById("stream").value;
+            const courseId = document.getElementById("course").value;
+            const noteEl = document.getElementById("course-note");
+            const maxScoreLabel = document.getElementById("max-score-label");
+            const scoreInput = document.getElementById("cuet-score");
+
+            const courses = coursesByStream[stream];
+            const course = courses.find(c => c.id === courseId);
+
+            if (course) {
+                noteEl.innerText = course.note;
+                noteEl.classList.remove("hidden");
+                maxScoreLabel.innerText = `Max Marks: ${course.max}`;
+                scoreInput.max = course.max;
+                scoreInput.placeholder = `Enter score (Max ${course.max})`;
+            }
+        }
+
+        function enableVerifyButton() {
+            const verifyBtn = document.getElementById("verify-btn");
+            const verifyHint = document.getElementById("verify-hint");
+            
+            verifyBtn.removeAttribute("disabled");
+            verifyBtn.classList.remove("bg-slate-100", "text-slate-400", "cursor-not-allowed");
+            verifyBtn.classList.add("bg-slate-900", "text-white", "hover:bg-slate-800", "cursor-pointer");
+            verifyHint.innerText = "Visit confirmed. Click Confirm below to proceed.";
+            verifyHint.classList.replace("text-slate-400", "text-green-600");
+        }
+
+        function verifySubscription() {
+            const modal = document.getElementById("verify-modal");
+            const spinner = document.getElementById("modal-spinner");
+            const confirmBox = document.getElementById("modal-confirm");
+            
+            modal.classList.remove("hidden");
+            spinner.classList.remove("hidden");
+            confirmBox.classList.add("hidden");
+
+            setTimeout(() => {
+                spinner.classList.add("hidden");
+                confirmBox.classList.remove("hidden");
+            }, 2000);
+        }
+
+        function closeModal() {
+            document.getElementById("verify-modal").classList.add("hidden");
+        }
+
+        function unlockPortal() {
+            localStorage.setItem("du_csas_unlocked", "true");
+            closeModal();
+            showDashboard();
+        }
+
+        function showDashboard() {
+            document.getElementById("sub-gate").classList.add("hidden");
+            document.getElementById("app-dashboard").classList.remove("hidden");
+        }
+
+        // Core processing algorithm
+        function generatePreferences(event) {
+            event.preventDefault();
+            
+            const stream = document.getElementById("stream").value;
+            const courseId = document.getElementById("course").value;
+            const score = parseFloat(document.getElementById("cuet-score").value);
+            const category = document.getElementById("category").value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            
+            const courses = coursesByStream[stream];
+            const courseObj = courses.find(c => c.id === courseId);
+            const maxAllowed = courseObj.max;
+
+            if (score > maxAllowed || score < 0) {
+                alert(`Please enter a valid score within the limits (0 to ${maxAllowed}).`);
+                return;
+            }
+
+            // Adjustments for reserved categories on the selected course scale (1000 vs 750)
+            let scoreBoost = 0;
+            if (maxAllowed === 1000) {
+                if (category === "OBC-NCL") scoreBoost = 35;
+                else if (category === "EWS") scoreBoost = 25;
+                else if (category === "SC") scoreBoost = 90;
+                else if (category === "ST") scoreBoost = 125;
+            } else { // Science PCM/PCB (750 Max Scale)
+                if (category === "OBC-NCL") scoreBoost = 25;
+                else if (category === "EWS") scoreBoost = 15;
+                else if (category === "SC") scoreBoost = 65;
+                else if (category === "ST") scoreBoost = 95;
+            }
+
+            const adjustedScore = score + scoreBoost;
+
+            let ambitiousArr = [];
+            let targetArr = [];
+            let safeArr = [];
+
+            COLLEGES_DB.forEach(college => {
+                // Gender restrictions
+                if (gender === "male" && college.type === "Girls") {
+                    return; 
+                }
+
+                // Check stream match
+                // SRCC allows B.Com Hons and Economics Hons ("arts-eco")
+                if (courseId === "ba_eco_hons") {
+                    if (!college.streams.includes("arts") && !college.streams.includes("arts-eco")) return;
+                } else {
+                    if (!college.streams.includes(stream)) return;
+                }
+
+                // Retrieve baseline cut-off values
+                let baseCutoff = maxAllowed === 750 ? college.base750 : college.base1000;
+                if (!baseCutoff) return;
+
+                // Program modifier logic
+                let calculatedCutoff = baseCutoff;
+                if (courseId === "bcom_prog") {
+                    calculatedCutoff -= 15;
+                } else if (courseId === "ba_polsci_hons") {
+                    calculatedCutoff += 5;
+                } else if (courseId === "ba_history_hons") {
+                    calculatedCutoff -= 10;
+                } else if (courseId === "ba_english_hons") {
+                    calculatedCutoff -= 15;
+                } else if (courseId === "ba_eco_hons") {
+                    if (college.name.includes("SRCC")) calculatedCutoff = 965;
+                    else calculatedCutoff -= 5;
+                } else if (courseId === "ba_prog") {
+                    calculatedCutoff -= 45;
+                } else if (courseId === "bsc_chemistry_hons") {
+                    calculatedCutoff -= 10;
+                } else if (courseId === "bsc_maths_hons") {
+                    calculatedCutoff -= 40; 
+                } else if (courseId === "bsc_comp_sci") {
+                    calculatedCutoff -= 30; 
+                } else if (courseId === "bsc_life_prog") {
+                    calculatedCutoff -= 40;
+                }
+
+                const diff = adjustedScore - calculatedCutoff;
+
+                // Threshold categories
+                if (diff >= 10) {
+                    safeArr.push({ ...college, round: "Round 1" });
+                } else if (diff >= -20) {
+                    let roundPred = "Round 1";
+                    if (diff < -8 && diff >= -20) roundPred = "Round 2 / 3";
+                    else if (diff < 0 && diff >= -8) roundPred = "Round 2";
+                    targetArr.push({ ...college, round: roundPred });
+                } else if (diff >= -50) {
+                    let roundPred = "Round 3 / Spot";
+                    if (diff >= -35) roundPred = "Round 2 / 3";
+                    ambitiousArr.push({ ...college, round: roundPred });
+                }
+            });
+
+            renderSection("ambitious-list", ambitiousArr, "border-red-100 bg-red-50/50 text-red-700");
+            renderSection("target-list", targetArr, "border-indigo-100 bg-indigo-50/50 text-indigo-700");
+            renderSection("safe-list", safeArr, "border-emerald-100 bg-emerald-50/50 text-emerald-700");
+
+            document.getElementById("results-placeholder").classList.add("hidden");
+            document.getElementById("results-container").classList.remove("hidden");
+            document.getElementById("copy-btn").classList.replace("hidden", "flex");
+        }
+
+        function renderSection(elementId, items, badgeClass) {
+            const listContainer = document.getElementById(elementId);
+            listContainer.innerHTML = "";
+
+            if (items.length === 0) {
+                listContainer.innerHTML = `<p class="text-xs text-slate-400 italic">No colleges found in this parameter range.</p>`;
+                return;
+            }
+
+            items.forEach((item, index) => {
+                const card = document.createElement("div");
+                card.className = "flex flex-col sm:flex-row justify-between items-start sm:items-center p-3.5 bg-white border border-slate-100 rounded-xl hover:shadow-sm transition";
+                card.innerHTML = `
+                    <div class="space-y-1">
+                        <span class="text-xs font-semibold text-slate-400 font-mono">#${index + 1}</span>
+                        <h5 class="font-bold text-slate-900 text-sm md:text-base leading-tight">${item.name}</h5>
+                        <div class="flex items-center space-x-2 text-xs text-slate-500">
+                            <span class="flex items-center space-x-1">
+                                <i class="fa-solid fa-map-pin text-indigo-500 text-[10px]"></i>
+                                <span>${item.campus}</span>
+                            </span>
+                            <span>&bull;</span>
+                            <span>${item.type}</span>
+                        </div>
+                    </div>
+                    <div class="mt-2.5 sm:mt-0 px-2.5 py-1 text-xs rounded-full font-bold border ${badgeClass}">
+                        ${item.round} Expected
+                    </div>
+                `;
+                listContainer.appendChild(card);
+            });
+        }
+
+        function copyPreferenceSheet() {
+            const stream = document.getElementById("stream").value;
+            const courseId = document.getElementById("course").value;
+            const courseSelect = document.getElementById("course");
+            const courseName = courseSelect.options[courseSelect.selectedIndex].text;
+            
+            let copyText = `DU CSAS Preference Order for: ${courseName} (${stream.toUpperCase()})\n\n`;
+            
+            const extractListText = (sectionTitle, elementId) => {
+                let sectionContent = `${sectionTitle}\n`;
+                const list = document.getElementById(elementId).querySelectorAll("h5");
+                if (list.length === 0) sectionContent += "- None -\n";
+                list.forEach((heading, idx) => {
+                    sectionContent += `${idx + 1}. ${heading.innerText}\n`;
+                });
+                return sectionContent + "\n";
+            };
+
+            copyText += extractListText("--- AMBITIOUS CHOICES (Recommended First) ---", "ambitious-list");
+            copyText += extractListText("--- TARGET MATCHES ---", "target-list");
+            copyText += extractListText("--- SAFE CHOICES ---", "safe-list");
+            copyText += "Generated via CUET GAT ENG counseling helper.";
+
+            navigator.clipboard.writeText(copyText).then(() => {
+                const copyBtn = document.getElementById("copy-btn");
+                copyBtn.innerHTML = `<i class="fa-solid fa-check text-green-500"></i> <span class="text-green-600">Copied!</span>`;
+                setTimeout(() => {
+                    copyBtn.innerHTML = `<i class="fa-regular fa-copy"></i> <span>Copy List</span>`;
+                }, 2000);
+            }).catch(err => {
+                alert("Failed to copy. Please manually highlight and select the generated text.");
+            });
+        }
+    </script>
 </body>
 </html>
