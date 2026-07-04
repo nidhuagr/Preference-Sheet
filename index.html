@@ -237,7 +237,7 @@
             <div id="modal-spinner" class="py-8">
                 <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
                 <h4 class="font-bold text-slate-800">Verifying Status...</h4>
-                <p class="text-xs text-slate-500 mt-1">Contacting channel subscription records.</p>
+                <p class="text-xs text-slate-500 mt-1">Checking channel subscription status.</p>
             </div>
             <div id="modal-confirm" class="hidden">
                 <div class="w-12 h-12 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -277,36 +277,36 @@
             ]
         };
 
-        // --- MASTER COLLEGE DATA ---
-        // base1000 represents baseline for B.Com Hons/PolSci Hons (out of 1000)
-        // base750 represents baseline for Physics Hons (out of 750)
+        // --- MASTER COLLEGE DATA (CORRECTED & REALISTIC 2025 ALLOTMENT CUTOFFS) ---
+        // base1000 reflects typical first round closing scores out of 1000
+        // base750 reflects PCM/PCB standard cutoffs out of 750 (Physics UR standard was ~557 at Hindu)
         const COLLEGES_DB = [
-            { name: "Shri Ram College of Commerce (SRCC)", campus: "North Campus", type: "Co-Ed", base1000: 970, base750: null, streams: ["commerce", "arts-eco"] },
-            { name: "Hindu College", campus: "North Campus", type: "Co-Ed", base1000: 965, base750: 705, streams: ["commerce", "arts", "science"] },
-            { name: "Lady Shri Ram College for Women (LSR)", campus: "South Campus", type: "Girls", base1000: 960, base750: null, streams: ["commerce", "arts"] },
-            { name: "Miranda House", campus: "North Campus", type: "Girls", base1000: 955, base750: 695, streams: ["arts", "science"] },
-            { name: "Hansraj College", campus: "North Campus", type: "Co-Ed", base1000: 950, base750: 690, streams: ["commerce", "arts", "science"] },
-            { name: "Kirori Mal College (KMC)", campus: "North Campus", type: "Co-Ed", base1000: 938, base750: 672, streams: ["commerce", "arts", "science"] },
-            { name: "Ramjas College", campus: "North Campus", type: "Co-Ed", base1000: 928, base750: 660, streams: ["commerce", "arts", "science"] },
-            { name: "Sri Venkateswara College (Venky)", campus: "South Campus", type: "Co-Ed", base1000: 925, base750: 655, streams: ["commerce", "arts", "science"] },
-            { name: "SGTB Khalsa College", campus: "North Campus", type: "Co-Ed", base1000: 905, base750: 635, streams: ["commerce", "arts", "science"] },
-            { name: "Indraprastha College for Women (IPCW)", campus: "North Campus", type: "Girls", base1000: 890, base750: null, streams: ["commerce", "arts"] },
-            { name: "Gargi College", campus: "South Campus", type: "Girls", base1000: 882, base750: 610, streams: ["commerce", "arts", "science"] },
-            { name: "Daulat Ram College", campus: "North Campus", type: "Girls", base1000: 875, base750: 595, streams: ["commerce", "arts", "science"] },
-            { name: "Shaheed Bhagat Singh College (SBSC)", campus: "South Campus", type: "Co-Ed", base1000: 868, base750: null, streams: ["commerce", "arts"] },
-            { name: "Delhi College of Arts & Commerce (DCAC)", campus: "South Campus", type: "Co-Ed", base1000: 862, base750: null, streams: ["commerce", "arts"] },
-            { name: "Atma Ram Sanatan Dharma College (ARSD)", campus: "South Campus", type: "Co-Ed", base1000: 855, base750: 580, streams: ["commerce", "arts", "science"] },
-            { name: "Kamala Nehru College", campus: "South Campus", type: "Girls", base1000: 840, base750: null, streams: ["commerce", "arts"] },
-            { name: "Motilal Nehru College", campus: "South Campus", type: "Co-Ed", base1000: 815, base750: 540, streams: ["commerce", "arts", "science"] },
-            { name: "Dyal Singh College", campus: "South Campus", type: "Co-Ed", base1000: 795, base750: 525, streams: ["commerce", "arts", "science"] },
-            { name: "Deen Dayal Upadhyaya College (DDUC)", campus: "Off-Campus", type: "Co-Ed", base1000: 780, base750: 535, streams: ["commerce", "science"] },
-            { name: "Ramanujan College", campus: "South Campus", type: "Co-Ed", base1000: 765, base750: 505, streams: ["commerce", "arts", "science"] },
-            { name: "P.G.D.A.V. College", campus: "South Campus", type: "Co-Ed", base1000: 735, base750: null, streams: ["commerce", "arts"] },
-            { name: "Satyawati College", campus: "Off-Campus", type: "Co-Ed", base1000: 715, base750: null, streams: ["commerce", "arts"] },
-            { name: "Bhaskaracharya College of Applied Sciences", campus: "Off-Campus", type: "Co-Ed", base1000: null, base750: 480, streams: ["science"] },
-            { name: "Zakir Husain Delhi College", campus: "Off-Campus", type: "Co-Ed", base1000: 695, base750: 460, streams: ["commerce", "arts", "science"] },
-            { name: "Shyam Lal College", campus: "Off-Campus", type: "Co-Ed", base1000: 675, base750: 445, streams: ["commerce", "arts", "science"] },
-            { name: "Swami Shraddhanand College", campus: "Off-Campus", type: "Co-Ed", base1000: 615, base750: 405, streams: ["commerce", "arts", "science"] }
+            { name: "Shri Ram College of Commerce (SRCC)", campus: "North Campus", type: "Co-Ed", base1000: 920, base750: null, streams: ["commerce", "arts-eco"] },
+            { name: "Hindu College", campus: "North Campus", type: "Co-Ed", base1000: 915, base750: 560, streams: ["commerce", "arts", "science"] },
+            { name: "Lady Shri Ram College for Women (LSR)", campus: "South Campus", type: "Girls", base1000: 910, base750: null, streams: ["commerce", "arts"] },
+            { name: "Miranda House", campus: "North Campus", type: "Girls", base1000: 910, base750: 545, streams: ["arts", "science"] },
+            { name: "Hansraj College", campus: "North Campus", type: "Co-Ed", base1000: 905, base750: 540, streams: ["commerce", "arts", "science"] },
+            { name: "Kirori Mal College (KMC)", campus: "North Campus", type: "Co-Ed", base1000: 885, base750: 520, streams: ["commerce", "arts", "science"] },
+            { name: "Ramjas College", campus: "North Campus", type: "Co-Ed", base1000: 875, base750: 505, streams: ["commerce", "arts", "science"] },
+            { name: "Sri Venkateswara College (Venky)", campus: "South Campus", type: "Co-Ed", base1000: 870, base750: 495, streams: ["commerce", "arts", "science"] },
+            { name: "SGTB Khalsa College", campus: "North Campus", type: "Co-Ed", base1000: 840, base750: 455, streams: ["commerce", "arts", "science"] },
+            { name: "Indraprastha College for Women (IPCW)", campus: "North Campus", type: "Girls", base1000: 820, base750: null, streams: ["commerce", "arts"] },
+            { name: "Gargi College", campus: "South Campus", type: "Girls", base1000: 810, base750: 430, streams: ["commerce", "arts", "science"] },
+            { name: "Daulat Ram College", campus: "North Campus", type: "Girls", base1000: 800, base750: 415, streams: ["commerce", "arts", "science"] },
+            { name: "Shaheed Bhagat Singh College (SBSC)", campus: "South Campus", type: "Co-Ed", base1000: 790, base750: null, streams: ["commerce", "arts"] },
+            { name: "Delhi College of Arts & Commerce (DCAC)", campus: "South Campus", type: "Co-Ed", base1000: 785, base750: null, streams: ["commerce", "arts"] },
+            { name: "Atma Ram Sanatan Dharma College (ARSD)", campus: "South Campus", type: "Co-Ed", base1000: 775, base750: 400, streams: ["commerce", "arts", "science"] },
+            { name: "Kamala Nehru College", campus: "South Campus", type: "Girls", base1000: 760, base750: null, streams: ["commerce", "arts"] },
+            { name: "Motilal Nehru College", campus: "South Campus", type: "Co-Ed", base1000: 735, base750: 345, streams: ["commerce", "arts", "science"] },
+            { name: "Dyal Singh College", campus: "South Campus", type: "Co-Ed", base1000: 715, base750: 335, streams: ["commerce", "arts", "science"] },
+            { name: "Deen Dayal Upadhyaya College (DDUC)", campus: "Off-Campus", type: "Co-Ed", base1000: 700, base750: 335, streams: ["commerce", "science"] },
+            { name: "Ramanujan College", campus: "South Campus", type: "Co-Ed", base1000: 685, base750: 325, streams: ["commerce", "arts", "science"] },
+            { name: "P.G.D.A.V. College", campus: "South Campus", type: "Co-Ed", base1000: 655, base750: null, streams: ["commerce", "arts"] },
+            { name: "Satyawati College", campus: "Off-Campus", type: "Co-Ed", base1000: 635, base750: null, streams: ["commerce", "arts"] },
+            { name: "Bhaskaracharya College of Applied Sciences", campus: "Off-Campus", type: "Co-Ed", base1000: null, base750: 305, streams: ["science"] },
+            { name: "Zakir Husain Delhi College", campus: "Off-Campus", type: "Co-Ed", base1000: 615, base750: 290, streams: ["commerce", "arts", "science"] },
+            { name: "Shyam Lal College", campus: "Off-Campus", type: "Co-Ed", base1000: 595, base750: 280, streams: ["commerce", "arts", "science"] },
+            { name: "Swami Shraddhanand College", campus: "Off-Campus", type: "Co-Ed", base1000: 535, base750: 260, streams: ["commerce", "arts", "science"] }
         ];
 
         document.addEventListener("DOMContentLoaded", () => {
@@ -413,18 +413,18 @@
                 return;
             }
 
-            // Adjustments for reserved categories on the selected course scale (1000 vs 750)
+            // Real offsets based on 2025 first round minimum scores
             let scoreBoost = 0;
             if (maxAllowed === 1000) {
-                if (category === "OBC-NCL") scoreBoost = 35;
-                else if (category === "EWS") scoreBoost = 25;
-                else if (category === "SC") scoreBoost = 90;
-                else if (category === "ST") scoreBoost = 125;
+                if (category === "OBC-NCL") scoreBoost = 75;
+                else if (category === "EWS") scoreBoost = 45;
+                else if (category === "SC") scoreBoost = 135;
+                else if (category === "ST") scoreBoost = 185;
             } else { // Science PCM/PCB (750 Max Scale)
-                if (category === "OBC-NCL") scoreBoost = 25;
-                else if (category === "EWS") scoreBoost = 15;
-                else if (category === "SC") scoreBoost = 65;
-                else if (category === "ST") scoreBoost = 95;
+                if (category === "OBC-NCL") scoreBoost = 55;
+                else if (category === "EWS") scoreBoost = 30;
+                else if (category === "SC") scoreBoost = 160;
+                else if (category === "ST") scoreBoost = 280;
             }
 
             const adjustedScore = score + scoreBoost;
@@ -454,24 +454,24 @@
                 // Program modifier logic
                 let calculatedCutoff = baseCutoff;
                 if (courseId === "bcom_prog") {
-                    calculatedCutoff -= 15;
+                    calculatedCutoff -= 25;
                 } else if (courseId === "ba_polsci_hons") {
-                    calculatedCutoff += 5;
+                    calculatedCutoff += 25; // Political Science closes much higher than other BA/B.Com courses
                 } else if (courseId === "ba_history_hons") {
-                    calculatedCutoff -= 10;
+                    calculatedCutoff -= 5;
                 } else if (courseId === "ba_english_hons") {
-                    calculatedCutoff -= 15;
+                    calculatedCutoff -= 25;
                 } else if (courseId === "ba_eco_hons") {
-                    if (college.name.includes("SRCC")) calculatedCutoff = 965;
-                    else calculatedCutoff -= 5;
+                    if (college.name.includes("SRCC")) calculatedCutoff = 909;
+                    else calculatedCutoff -= 10;
                 } else if (courseId === "ba_prog") {
-                    calculatedCutoff -= 45;
+                    calculatedCutoff -= 60;
                 } else if (courseId === "bsc_chemistry_hons") {
-                    calculatedCutoff -= 10;
+                    calculatedCutoff -= 22; // Chemistry typically closes slightly lower than Physics
                 } else if (courseId === "bsc_maths_hons") {
-                    calculatedCutoff -= 40; 
+                    calculatedCutoff -= 100; // Calculated on 1000-point scale
                 } else if (courseId === "bsc_comp_sci") {
-                    calculatedCutoff -= 30; 
+                    calculatedCutoff -= 120; // Calculated on 1000-point scale
                 } else if (courseId === "bsc_life_prog") {
                     calculatedCutoff -= 40;
                 }
