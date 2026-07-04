@@ -3,68 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DU CSAS Preference Maker | CUET GAT ENG</title>
+    <title>DU CSAS 2026 Predictor | CUET GAT ENG</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --du-blue: #0a3d62; --yt-red: #ff0000; }
-        body { font-family: 'Poppins', sans-serif; background-color: #f1f3f6; }
-        .navbar { background: var(--du-blue); color: white; padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .card { border: none; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .btn-subscribe { background: var(--yt-red); color: white; border-radius: 30px; font-weight: 600; padding: 12px 30px; transition: 0.3s; text-decoration: none; display: inline-block; }
-        .btn-subscribe:hover { background: #cc0000; color: white; transform: scale(1.05); }
-        .step-box { display: none; }
-        .active { display: block; animation: slideUp 0.5s ease; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .college-card { background: white; border-left: 10px solid #ccc; margin-bottom: 15px; padding: 20px; border-radius: 10px; transition: 0.3s; }
-        .tier-1 { border-left-color: #ffd700; } /* Gold */
-        .tier-2 { border-left-color: #c0c0c0; } /* Silver */
-        .tier-3 { border-left-color: #cd7f32; } /* Bronze */
-        .prob-high { background: #e8f5e9; border-right: 5px solid #2e7d32; }
-        .prob-medium { background: #fffde7; border-right: 5px solid #fbc02d; }
-        .prob-dream { background: #ffebee; border-right: 5px solid #c62828; }
-        .badge-match { font-size: 0.8rem; padding: 5px 12px; border-radius: 20px; }
+        :root { --du-maroon: #800000; --yt-red: #ff0000; --glass: rgba(255, 255, 255, 0.9); }
+        body { font-family: 'Poppins', sans-serif; background: #f0f2f5; color: #1a1a1a; }
+        .header { background: var(--du-maroon); color: white; padding: 40px 0; border-radius: 0 0 40px 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .card { border: none; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); background: var(--glass); backdrop-filter: blur(10px); }
+        .btn-subscribe { background: var(--yt-red); color: white; border-radius: 50px; font-weight: 700; padding: 15px 35px; border: none; transition: 0.4s; text-decoration: none; display: inline-block; }
+        .btn-subscribe:hover { background: #333; color: white; transform: scale(1.05); }
+        .step-panel { display: none; }
+        .active { display: block; animation: fadeIn 0.6s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        .college-result { border-left: 8px solid #ddd; margin-bottom: 15px; padding: 20px; border-radius: 15px; background: white; transition: 0.3s; }
+        .safe { border-left-color: #2ecc71; background: #fafffa; }
+        .target { border-left-color: #f1c40f; background: #fffdf5; }
+        .dream { border-left-color: #e74c3c; background: #fffafa; }
+        .badge-campus { font-size: 0.7rem; padding: 4px 10px; border-radius: 10px; text-transform: uppercase; }
+        .north { background: #ffebee; color: #c62828; }
+        .south { background: #e3f2fd; color: #1565c0; }
+        .off { background: #f5f5f5; color: #616161; }
     </style>
 </head>
 <body>
 
-<nav class="navbar mb-4">
-    <div class="container text-center">
-        <h4 class="mb-0 fw-bold">DU CSAS 2024 Preference Maker</h4>
-        <small>Powered by @CUET_GAT_ENG</small>
+<div class="header text-center">
+    <div class="container">
+        <h1 class="fw-bold">DU CSAS 2026 Preference Maker</h1>
+        <p class="lead">Pattern: 250 Marks Per Subject | Powered by @CUET_GAT_ENG</p>
     </div>
-</nav>
+</div>
 
-<div class="container mb-5">
-    <!-- STEP 1: SUBSCRIBE GATE -->
-    <div id="step1" class="step-box active">
+<div class="container my-5">
+    <!-- STEP 1: YT VERIFICATION -->
+    <div id="step1" class="step-panel active">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center">
                 <div class="card p-5">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" width="80" class="mb-3">
-                    <h3>Unlock Sheet Maker</h3>
-                    <p class="text-muted">This analyzer uses private data from last year's seat allocations. Please subscribe to our channel to gain access.</p>
-                    <a href="https://www.youtube.com/@CUET_GAT_ENG?sub_confirmation=1" target="_blank" onclick="showUnlock()" class="btn btn-subscribe mt-3">SUBSCRIBE TO UNLOCK</a>
-                    
-                    <div id="unlock-area" class="mt-4" style="display:none;">
-                        <button onclick="goToStep(2)" class="btn btn-dark btn-lg w-100">I Have Subscribed - Access Tool</button>
+                    <h3 class="fw-bold">Channel Verification</h3>
+                    <p class="text-muted">This specialized 2026 algorithm is exclusive to our subscribers. Please subscribe to unlock the preference generator.</p>
+                    <a href="https://www.youtube.com/@CUET_GAT_ENG?sub_confirmation=1" target="_blank" onclick="showVerify()" class="btn btn-subscribe mb-3">SUBSCRIBE TO CHANNEL</a>
+                    <div id="verify-box" style="display:none;">
+                        <hr>
+                        <button onclick="changeStep(2)" class="btn btn-dark w-100 py-3 rounded-pill">I HAVE SUBSCRIBED - START</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- STEP 2: USER INPUT -->
-    <div id="step2" class="step-box">
+    <!-- STEP 2: PROFILE INPUT -->
+    <div id="step2" class="step-panel">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card p-4">
-                    <h5 class="fw-bold mb-4">Enter Your CUET Score Details</h5>
-                    <div class="row g-3">
+                    <h4 class="fw-bold mb-4 text-center">Analyze Your 2026 Scores</h4>
+                    <div class="row g-4">
                         <div class="col-md-6">
-                            <label class="form-label">Category</label>
-                            <select id="userCat" class="form-select">
-                                <option value="UR">Unreserved (General)</option>
+                            <label class="form-label fw-bold">Stream Pattern</label>
+                            <select id="stream" class="form-select" onchange="updateMaxScore()">
+                                <option value="1000">Arts/Commerce (4 Subs x 250 = 1000)</option>
+                                <option value="750">Science (3 Subs x 250 = 750)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Category</label>
+                            <select id="category" class="form-select">
+                                <option value="UR">General (UR)</option>
                                 <option value="OBC">OBC-NCL</option>
                                 <option value="EWS">EWS</option>
                                 <option value="SC">SC</option>
@@ -72,24 +78,23 @@
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">Normalized Score</label>
-                            <input type="number" id="userScore" class="form-control" placeholder="Enter Score">
+                            <label class="form-label fw-bold">Normalized Total Score</label>
+                            <input type="number" id="userScore" class="form-control" placeholder="Enter total score">
+                            <small id="scoreHint" class="text-muted">Max Possible: 1000</small>
                         </div>
-                        <div class="col-md-12">
-                            <label class="form-label">Target Stream</label>
-                            <select id="userStream" class="form-select" onchange="updateCourses()">
-                                <option value="commerce">Commerce / Arts (Out of 800)</option>
-                                <option value="science">Science / B.Sc (Out of 600)</option>
-                            </select>
-                        </div>
-                        <div class="col-md-12">
-                            <label class="form-label">Preferred Course</label>
-                            <select id="userCourse" class="form-select">
-                                <!-- Options populated by JS -->
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Target Course</label>
+                            <select id="course" class="form-select">
+                                <option>B.Com (Hons)</option>
+                                <option>B.A. Pol Science (Hons)</option>
+                                <option>B.A. Economics (Hons)</option>
+                                <option>B.Sc Physics/Maths</option>
+                                <option>B.A. Programme</option>
+                                <option>B.Com Programme</option>
                             </select>
                         </div>
                         <div class="col-12 mt-4">
-                            <button onclick="generateSheet()" class="btn btn-primary btn-lg w-100" style="background:#0a3d62">Generate Personalized Sheet</button>
+                            <button onclick="calculatePreferences()" class="btn btn-primary btn-lg w-100 rounded-pill" style="background:var(--du-maroon); border:none;">Generate Sorted Preference Sheet</button>
                         </div>
                     </div>
                 </div>
@@ -97,137 +102,7 @@
         </div>
     </div>
 
-    <!-- STEP 3: PREFERENCE SHEET -->
-    <div id="step3" class="step-box">
-        <div class="d-flex justify-content-between align-items-end mb-4">
-            <div>
-                <h3 class="fw-bold mb-0">Your CSAS Preference List</h3>
-                <p class="text-muted">Arranged from Most Realistic to Dream Colleges</p>
-            </div>
-            <button onclick="window.print()" class="btn btn-outline-dark">Download PDF</button>
-        </div>
-        
-        <div id="resultArea"></div>
-
-        <div class="alert alert-info mt-4 small">
-            <strong>Pro Tip:</strong> In the actual CSAS portal, always keep North Campus colleges at the top, even if they are marked as 'Dream' here. This tool shows you what you are <strong>actually</strong> going to get.
-        </div>
-    </div>
-</div>
-
-<script>
-    // Realistic College Database (UR Base Cutoffs)
-    const db = [
-        { name: "SRCC", tier: 1, campus: "North", ur: 782 },
-        { name: "Hindu College", tier: 1, campus: "North", ur: 778 },
-        { name: "St. Stephens College", tier: 1, campus: "North", ur: 785 },
-        { name: "Hansraj College", tier: 1, campus: "North", ur: 772 },
-        { name: "Miranda House (W)", tier: 1, campus: "North", ur: 770 },
-        { name: "Lady Shri Ram (W)", tier: 1, campus: "South", ur: 775 },
-        { name: "Kirori Mal College", tier: 1, campus: "North", ur: 765 },
-        { name: "Ramjas College", tier: 1, campus: "North", ur: 758 },
-        { name: "Sri Venkateswara College", tier: 2, campus: "South", ur: 750 },
-        { name: "Atma Ram Sanatan Dharma (ARSD)", tier: 2, campus: "South", ur: 735 },
-        { name: "Shaheed Bhagat Singh", tier: 2, campus: "South", ur: 725 },
-        { name: "SGTB Khalsa", tier: 2, campus: "North", ur: 738 },
-        { name: "Gargi College (W)", tier: 2, campus: "South", ur: 715 },
-        { name: "Delhi College of Arts & Commerce", tier: 2, campus: "South", ur: 710 },
-        { name: "Dyal Singh College", tier: 2, campus: "South", ur: 695 },
-        { name: "Maitreyi College (W)", tier: 2, campus: "South", ur: 680 },
-        { name: "College of Vocational Studies", tier: 2, campus: "South", ur: 685 },
-        { name: "Motilal Nehru College", tier: 3, campus: "South", ur: 660 },
-        { name: "Ramanujan College", tier: 3, campus: "Off", ur: 645 },
-        { name: "Aryabhatta College", tier: 3, campus: "South", ur: 655 },
-        { name: "Deshbandhu College", tier: 3, campus: "Off", ur: 630 },
-        { name: "PGDAV College", tier: 3, campus: "Off", ur: 610 },
-        { name: "Zakir Husain Delhi College", tier: 3, campus: "Off", ur: 600 },
-        { name: "Rajdhani College", tier: 3, campus: "Off", ur: 585 },
-        { name: "Shyam Lal College", tier: 3, campus: "Off", ur: 560 },
-        { name: "Satyawati College", tier: 3, campus: "Off", ur: 550 },
-        { name: "Swami Shraddhanand College", tier: 3, campus: "Off", ur: 480 }
-    ];
-
-    function updateCourses() {
-        const stream = document.getElementById('userStream').value;
-        const select = document.getElementById('userCourse');
-        const options = stream === 'commerce' ? 
-            ["B.Com (Hons)", "B.Com Programme", "Economics (Hons)", "Political Science (Hons)", "History (Hons)", "English (Hons)", "B.A. Programme"] :
-            ["Physics (Hons)", "Chemistry (Hons)", "Mathematics (Hons)", "Computer Science", "Biological Sciences"];
-        
-        select.innerHTML = options.map(o => `<option value="${o}">${o}</option>`).join('');
-    }
-
-    function showUnlock() {
-        setTimeout(() => { document.getElementById('unlock-area').style.display = 'block'; }, 3000);
-    }
-
-    function goToStep(s) {
-        document.querySelectorAll('.step-box').forEach(b => b.classList.remove('active'));
-        document.getElementById('step' + s).classList.add('active');
-        if(s === 2) updateCourses();
-    }
-
-    function generateSheet() {
-        const score = parseFloat(document.getElementById('userScore').value);
-        const cat = document.getElementById('userCat').value;
-        const stream = document.getElementById('userStream').value;
-        const resultArea = document.getElementById('resultArea');
-
-        if(!score) return alert("Please enter score");
-
-        // Category Relaxations (Realistic percentages)
-        let relaxation = 0;
-        if(cat === "OBC") relaxation = 35;
-        if(cat === "EWS") relaxation = 15;
-        if(cat === "SC") relaxation = 85;
-        if(cat === "ST") relaxation = 130;
-
-        let multiplier = (stream === "science") ? 0.75 : 1.0;
-
-        // Processed Data
-        let list = db.map(c => {
-            let adjCutoff = (c.ur * multiplier) - (relaxation * multiplier);
-            let probability = "";
-            let probScore = 0;
-
-            if (score >= adjCutoff) { probability = "High Probability"; probScore = 3; }
-            else if (score >= adjCutoff - 25) { probability = "Target (Medium)"; probScore = 2; }
-            else { probability = "Dream (Low)"; probScore = 1; }
-
-            return { ...c, adjCutoff, probability, probScore };
-        });
-
-        // SORTING LOGIC:
-        // 1. We want Target & High Probability colleges at the top.
-        // 2. Among them, we want the highest Tier (best colleges) first.
-        list.sort((a, b) => {
-            if (b.probScore !== a.probScore) return b.probScore - a.probScore;
-            return a.tier - b.tier; // Lower tier number means better college
-        });
-
-        resultArea.innerHTML = "";
-        list.forEach((col, i) => {
-            const probClass = col.probScore === 3 ? "prob-high" : (col.probScore === 2 ? "prob-medium" : "prob-dream");
-            const badgeClass = col.probScore === 3 ? "bg-success" : (col.probScore === 2 ? "bg-warning text-dark" : "bg-danger");
-
-            resultArea.innerHTML += `
-                <div class="college-card tier-${col.tier} ${probClass}">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h5 class="fw-bold mb-1">#${i + 1} ${col.name}</h5>
-                            <span class="text-muted small">${col.campus} Campus | Tier ${col.tier}</span>
-                        </div>
-                        <div class="text-end">
-                            <span class="badge badge-match ${badgeClass}">${col.probability}</span>
-                            <div class="mt-1 small fw-bold text-primary">Est. Cutoff: ~${Math.round(col.adjCutoff)}</div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        });
-
-        goToStep(3);
-    }
-</script>
-</body>
-</html>
+    <!-- STEP 3: FINAL SHEET -->
+    <div id="step3" class="step-panel">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-bold">Your Rea
